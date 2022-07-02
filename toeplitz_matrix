@@ -1,0 +1,12 @@
+class Solution:
+    def isToeplitzMatrix(self, matrix: List[List[int]]) -> bool:
+        
+        hash_set = {}
+        for row in range(len(matrix)):
+            for column in range(len(matrix[0])):
+                if column - row not in hash_set.keys():
+                    hash_set[column - row] = matrix[row][column]
+                else:
+                    if (hash_set[column-row] != matrix[row][column]):
+                        return False
+        return True
